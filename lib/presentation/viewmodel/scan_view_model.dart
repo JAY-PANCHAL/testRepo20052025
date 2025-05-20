@@ -1,14 +1,12 @@
-
-import 'package:flutter/material.dart';
-import '../../data/model/scan_model.dart';
-import '../../data/services/api_service.dart';
-
 import 'package:flutter/material.dart';
 import '../../data/model/scan_model.dart';
 import '../../data/services/api_service.dart';
 
 class ScanViewModel extends ChangeNotifier {
-  final ApiService _apiService = ApiService();
+  final ApiService _apiService;
+
+  ScanViewModel({ApiService? apiService})
+      : _apiService = apiService ?? ApiService();
 
   List<ScanModel> scans = [];
   bool isLoading = false;
@@ -25,4 +23,3 @@ class ScanViewModel extends ChangeNotifier {
     notifyListeners();
   }
 }
-
